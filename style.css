@@ -1,0 +1,506 @@
+/* ===================================================
+   RESET & VARIÁVEIS GLOBAIS
+   =================================================== */
+
+/* Importa a fonte JetBrains Mono do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap');
+
+/* Variáveis CSS (custom properties) — definidas uma vez, usadas em todo o ficheiro.
+   Se um dia quiseres mudar a paleta toda, só precisas de mudar aqui. */
+:root {
+  /* Paleta Dracula */
+  --bg: #282a36;
+  --bg-soft: #2f3140;
+  --bg-card: #353746;
+  --bg-current-line: #44475a;
+  --fg: #f8f8f2;
+  --comment: #6272a4;
+  --purple: #bd93f9;
+  --pink: #ff79c6;
+  --green: #50fa7b;
+  --cyan: #8be9fd;
+  --orange: #ffb86c;
+  --red: #ff5555;
+
+  /* Tipografia */
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  /* Espaçamentos reutilizáveis */
+  --container-width: 1100px;
+  --section-padding: 6rem 0;
+
+  /* Transições */
+  --transition: 0.25s ease;
+}
+
+/* Reset básico — remove margens/paddings default dos browsers */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* scroll suave nativo ao clicar em links de âncora (#secção) */
+}
+
+body {
+  font-family: var(--font-mono);
+  background-color: var(--bg);
+  color: var(--fg);
+  line-height: 1.6;
+  overflow-x: hidden; /* evita scroll horizontal acidental */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Container genérico para limitar largura do conteúdo e centrar */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Título de secção, reutilizado em Sobre/Skills/Projetos/Contacto */
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  position: relative;
+  display: inline-block;
+  color: var(--fg);
+}
+
+/* Decoração tipo "comentário de código" antes do título, ex: // Sobre mim */
+.section-title::before {
+  content: '// ';
+  color: var(--green);
+  font-weight: 400;
+}
+
+/* ===================================================
+   BOTÕES
+   =================================================== */
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 2px solid transparent;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.btn--primary {
+  background-color: var(--purple);
+  color: var(--bg);
+}
+
+.btn--primary:hover {
+  background-color: var(--pink);
+  transform: translateY(-2px);
+}
+
+.btn--secondary {
+  background-color: transparent;
+  border-color: var(--purple);
+  color: var(--purple);
+}
+
+.btn--secondary:hover {
+  background-color: var(--purple);
+  color: var(--bg);
+  transform: translateY(-2px);
+}
+
+/* ===================================================
+   NAVBAR
+   =================================================== */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(40, 42, 54, 0.85); /* var(--bg) com transparência */
+  backdrop-filter: blur(8px); /* efeito "vidro esmerilado" ao fazer scroll */
+  z-index: 1000;
+  border-bottom: 1px solid var(--bg-current-line);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.navbar__logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--green);
+}
+
+.navbar__nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar__nav a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--fg);
+  position: relative;
+  transition: var(--transition);
+}
+
+.navbar__nav a:hover {
+  color: var(--purple);
+}
+
+/* Sublinhado animado ao passar o rato */
+.navbar__nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background-color: var(--pink);
+  transition: width var(--transition);
+}
+
+.navbar__nav a:hover::after {
+  width: 100%;
+}
+
+/* Botão hamburger — escondido por defeito, só aparece em mobile (ver media query) */
+.navbar__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar__toggle span {
+  width: 100%;
+  height: 2px;
+  background-color: var(--fg);
+  border-radius: 2px;
+}
+
+/* ===================================================
+   HERO
+   =================================================== */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 70px; /* compensa a navbar fixa */
+}
+
+.hero__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.hero__text {
+  flex: 1 1 450px;
+}
+
+.hero__greeting {
+  color: var(--green);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero__greeting::before {
+  content: '$ ';
+  color: var(--comment);
+}
+
+.hero__name {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: var(--fg);
+  margin-bottom: 0.5rem;
+}
+
+.hero__title {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--purple);
+  margin-bottom: 1.2rem;
+}
+
+.hero__description {
+  color: var(--comment);
+  font-size: 1.05rem;
+  max-width: 500px;
+  margin-bottom: 2rem;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero__image {
+  flex: 1 1 280px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero__image img {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--purple);
+  box-shadow: 0 0 40px rgba(189, 147, 249, 0.3); /* brilho roxo subtil */
+}
+
+/* ===================================================
+   SOBRE
+   =================================================== */
+
+.sobre {
+  padding: var(--section-padding);
+  background-color: var(--bg-soft);
+}
+
+.sobre__content {
+  max-width: 750px;
+}
+
+.sobre__content p {
+  color: var(--comment);
+  margin-bottom: 1.2rem;
+  font-size: 1.05rem;
+}
+
+/* ===================================================
+   SKILLS
+   =================================================== */
+
+.skills {
+  padding: var(--section-padding);
+}
+
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+}
+
+.skill-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--bg-current-line);
+  border-radius: 8px;
+  padding: 1.8rem 1rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--purple);
+}
+
+.skill-card__icon {
+  font-size: 2.2rem;
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.skill-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+/* ===================================================
+   PROJETOS
+   =================================================== */
+
+.projetos {
+  padding: var(--section-padding);
+  background-color: var(--bg-soft);
+}
+
+.projetos__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--bg-current-line);
+  border-radius: 10px;
+  padding: 2rem;
+  transition: var(--transition);
+}
+
+.project-card:hover {
+  border-color: var(--cyan);
+  transform: translateY(-5px);
+}
+
+.project-card h3 {
+  color: var(--fg);
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.project-card p {
+  color: var(--comment);
+  margin-bottom: 1.2rem;
+  font-size: 0.95rem;
+}
+
+.project-card__tags {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.2rem;
+}
+
+.tag {
+  background-color: var(--bg-current-line);
+  color: var(--cyan);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+}
+
+.project-card__link {
+  color: var(--purple);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.project-card__link:hover {
+  color: var(--pink);
+}
+
+.project-card--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-style: dashed;
+  opacity: 0.6;
+}
+
+/* ===================================================
+   CONTACTO
+   =================================================== */
+
+.contacto {
+  padding: var(--section-padding);
+  text-align: center;
+}
+
+.contacto__text {
+  color: var(--comment);
+  max-width: 500px;
+  margin: 0 auto 2rem;
+}
+
+.contacto__links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ===================================================
+   FOOTER
+   =================================================== */
+
+.footer {
+  padding: 2rem 0;
+  text-align: center;
+  border-top: 1px solid var(--bg-current-line);
+}
+
+.footer p {
+  color: var(--comment);
+  font-size: 0.85rem;
+}
+
+/* ===================================================
+   RESPONSIVE — MOBILE
+   =================================================== */
+
+@media (max-width: 768px) {
+  .navbar__nav {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg);
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+    gap: 1.5rem;
+    border-bottom: 1px solid var(--bg-current-line);
+
+    /* Escondido por defeito — a classe .is-open é adicionada via JS */
+    transform: translateY(-150%);
+    transition: transform var(--transition);
+  }
+
+  .navbar__nav.is-open {
+    transform: translateY(0);
+  }
+
+  .navbar__toggle {
+    display: flex; /* só aparece em mobile */
+  }
+
+  .hero__inner {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .hero__description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero__actions {
+    justify-content: center;
+  }
+
+  .hero__name {
+    font-size: 2.4rem;
+  }
+}
