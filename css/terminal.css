@@ -1,0 +1,184 @@
+/* css/terminal.css
+ *
+ * Styles for the interactive terminal and the bicycle game on the home page.
+ * Colours come from the Dracula variables defined in style.css.
+ */
+
+.terminal {
+  margin-top: 3rem;
+  max-width: 760px;
+}
+
+.terminal__window {
+  border: 1px solid var(--border, #44475a);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--bg-alt, #1e1f29);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.terminal__body {
+  padding: 0.9rem 1rem 0.6rem;
+  font-size: 0.85rem;
+}
+
+.terminal__output {
+  max-height: 17rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.terminal__line {
+  min-height: 1.55em;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  color: var(--fg, #f8f8f2);
+}
+
+.terminal__prompt-echo,
+.terminal__prompt {
+  color: var(--green, #50fa7b);
+}
+
+.terminal__dim {
+  color: var(--comment, #6272a4);
+}
+
+.terminal__ok {
+  color: var(--green, #50fa7b);
+}
+
+.terminal__err {
+  color: var(--red, #ff5555);
+}
+
+.terminal__cmd {
+  color: var(--purple, #bd93f9);
+}
+
+.terminal__link {
+  color: var(--cyan, #8be9fd);
+  border-bottom: 1px solid transparent;
+}
+
+.terminal__link:hover,
+.terminal__link:focus-visible {
+  border-bottom-color: var(--cyan, #8be9fd);
+}
+
+/* ----- input line ----- */
+
+.terminal__form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.terminal__prompt {
+  flex: none;
+}
+
+.terminal__input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.2rem 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--fg, #f8f8f2);
+  font: inherit;
+  caret-color: var(--green, #50fa7b);
+}
+
+.terminal__input:disabled {
+  opacity: 0.4;
+}
+
+/* ----- game ----- */
+
+.terminal__game {
+  margin: 0.75rem 0;
+}
+
+.terminal__game[hidden] {
+  display: none;
+}
+
+.terminal__canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 1;
+  border: 1px solid var(--border, #44475a);
+  border-radius: 4px;
+  background-color: var(--bg-alt, #1e1f29);
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+}
+
+.terminal__game-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--comment, #6272a4);
+}
+
+/* ----- command buttons ----- */
+
+.terminal__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem 0.9rem;
+  border-top: 1px solid var(--border, #44475a);
+}
+
+.terminal__chip,
+.terminal__game-exit {
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--border, #44475a);
+  border-radius: 6px;
+  background-color: transparent;
+  color: var(--purple, #bd93f9);
+  font: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.terminal__chip:hover,
+.terminal__game-exit:hover {
+  background-color: var(--bg-current-line, #44475a);
+}
+
+.terminal__chip:focus-visible,
+.terminal__game-exit:focus-visible,
+.terminal__input:focus-visible {
+  outline: 2px solid var(--purple, #bd93f9);
+  outline-offset: 2px;
+}
+
+.terminal__chip--play {
+  border-color: var(--green, #50fa7b);
+  color: var(--green, #50fa7b);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

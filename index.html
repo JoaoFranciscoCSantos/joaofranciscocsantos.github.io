@@ -10,6 +10,7 @@
   <link rel="apple-touch-icon" href="assets/favicon-180.png">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/terminal.css">
 </head>
 <body>
 
@@ -65,6 +66,61 @@
 
     </section>
 
+    <!-- Interactive terminal (hidden until js/terminal.js runs) -->
+    <section class="terminal" id="terminal" aria-labelledby="terminal-title" hidden>
+      <h2 class="visually-hidden" id="terminal-title">Interactive terminal</h2>
+
+      <div class="terminal__window">
+        <div class="hero__window-bar">
+          <span class="hero__dot hero__dot--red"></span>
+          <span class="hero__dot hero__dot--yellow"></span>
+          <span class="hero__dot hero__dot--green"></span>
+          <span class="hero__window-title">~/explore</span>
+        </div>
+
+        <div class="terminal__body">
+          <div class="terminal__output" id="terminal-output" role="log" aria-live="polite"></div>
+
+          <div class="terminal__game" id="terminal-game" hidden>
+            <canvas
+              id="bike-canvas"
+              class="terminal__canvas"
+              width="600"
+              height="150"
+              role="img"
+              aria-label="Bicycle game. Press space to jump and the down arrow to duck."
+            ></canvas>
+            <div class="terminal__game-footer">
+              <span>Space / tap: jump &middot; &darr; / hold bottom: duck &middot; Esc: exit</span>
+              <button type="button" class="terminal__game-exit" id="terminal-game-exit">Exit game</button>
+            </div>
+          </div>
+
+          <form class="terminal__form" id="terminal-form" autocomplete="off">
+            <label class="terminal__prompt" for="terminal-input">visitor@joao:~$</label>
+            <input
+              class="terminal__input"
+              id="terminal-input"
+              type="text"
+              autocomplete="off"
+              autocapitalize="off"
+              autocorrect="off"
+              spellcheck="false"
+              aria-label="Type a command"
+            >
+          </form>
+        </div>
+
+        <div class="terminal__chips">
+          <button type="button" class="terminal__chip" data-command="help">help</button>
+          <button type="button" class="terminal__chip" data-command="about">about</button>
+          <button type="button" class="terminal__chip" data-command="projects">projects</button>
+          <button type="button" class="terminal__chip" data-command="contact">contact</button>
+          <button type="button" class="terminal__chip terminal__chip--play" data-command="play">play</button>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- The footer is built by js/footer.js and injected here -->
@@ -72,5 +128,7 @@
 
   <script src="js/sidebar.js"></script>
   <script src="js/footer.js"></script>
+  <script src="js/bike-game.js"></script>
+  <script src="js/terminal.js"></script>
 </body>
 </html>
