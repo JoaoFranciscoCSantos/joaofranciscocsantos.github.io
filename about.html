@@ -41,56 +41,68 @@
     <section class="about__hobby">
       <p class="cmd-prompt">$ cat hobbies/cycling.md</p>
       <h2 class="about__subtitle">Cycling</h2>
-      <figure class="media" data-path="assets/hobbies/cycling.jpg">
-        <img src="assets/hobbies/bike.png" alt="Me cycling" loading="lazy"
-             onerror="this.parentElement.classList.add('media--empty'); this.remove();">
-      </figure>
-      <p class="about__text">
-        I train cycling with a focus on FTP and VO2max. I also enjoy building
-        and restoring bikes, and I'm currently putting one together from
-        scratch using second-hand parts.
-      </p>
+      <div class="about__hobby-body">
+        <div class="about__hobby-text">
+          <p class="about__text">
+            I train cycling with a focus on FTP and VO2max. I also enjoy
+            building and restoring bikes, and I'm currently putting one
+            together from scratch using second-hand parts.
+          </p>
 
-      <!--
-        NOTE: Strava's official embeddable widget (iframe) has been broken
-        since Jan 2026 and Strava hasn't fixed it, so this is a plain link
-        instead of embedded data.
-        For live data (e.g. monthly km, FTP chart), the proper way is the
-        Strava API with OAuth — something for another time.
-      -->
-      <a
-        href="https://www.strava.com/athletes/45406479"
-        target="_blank"
-        rel="noopener"
-        class="about__strava-link"
-      >
-        See my activity on Strava →
-      </a>
+          <!--
+            NOTE: Strava's official embeddable widget (iframe) has been broken
+            since Jan 2026 and Strava hasn't fixed it, so this is a plain link
+            instead of embedded data.
+            For live data (e.g. monthly km, FTP chart), the proper way is the
+            Strava API with OAuth — something for another time.
+          -->
+          <a
+            href="https://www.strava.com/athletes/45406479"
+            target="_blank"
+            rel="noopener"
+            class="about__strava-link"
+          >
+            See my activity on Strava →
+          </a>
+        </div>
+        <figure class="media media--square" data-path="assets/hobbies/cycling.jpg">
+          <img src="assets/hobbies/cycling.jpg" alt="Me cycling" loading="lazy"
+               onerror="this.parentElement.classList.add('media--empty'); this.remove();">
+        </figure>
+      </div>
     </section>
 
     <section class="about__hobby">
       <p class="cmd-prompt">$ cat hobbies/powerlifting.md</p>
       <h2 class="about__subtitle">Powerlifting</h2>
-      <figure class="media" data-path="assets/hobbies/powerlifting.jpg">
-        <img src="assets/hobbies/powerlifting.jpeg" alt="Me powerlifting" loading="lazy"
-             onerror="this.parentElement.classList.add('media--empty'); this.remove();">
-      </figure>
-      <p class="about__text">
-        I train powerlifting alongside cycling, with a hybrid plan designed
-        so the two don't get in each other's way.
-      </p>
+      <div class="about__hobby-body">
+        <div class="about__hobby-text">
+          <p class="about__text">
+            I train powerlifting alongside cycling, with a hybrid plan
+            designed so the two don't get in each other's way.
+          </p>
+        </div>
+        <figure class="media media--square" data-path="assets/hobbies/powerlifting.jpg">
+          <img src="assets/hobbies/powerlifting.jpg" alt="Me powerlifting" loading="lazy"
+               onerror="this.parentElement.classList.add('media--empty'); this.remove();">
+        </figure>
+      </div>
     </section>
 
     <section class="about__hobby">
       <p class="cmd-prompt">$ cat hobbies/motorcycling.md</p>
       <h2 class="about__subtitle">Motorcycling</h2>
-      <figure class="media" data-path="assets/hobbies/motorcycling.jpg">
-        <img src="assets/hobbies/motinha.png" alt="My DT 50 motorcycle" loading="lazy"
-             onerror="this.parentElement.classList.add('media--empty'); this.remove();">
-      </figure>
-      <p class="about__text">
-        I ride a DT 50 in my free time.
-      </p>
+      <div class="about__hobby-body">
+        <div class="about__hobby-text">
+          <p class="about__text">
+            I ride a DT 50 in my free time.
+          </p>
+        </div>
+        <figure class="media media--square" data-path="assets/hobbies/motorcycling.jpg">
+          <img src="assets/hobbies/motorcycling.jpg" alt="My DT 50 motorcycle" loading="lazy"
+               onerror="this.parentElement.classList.add('media--empty'); this.remove();">
+        </figure>
+      </div>
     </section>
 
   </main>

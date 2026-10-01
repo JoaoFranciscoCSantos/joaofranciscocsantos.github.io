@@ -425,6 +425,39 @@ body {
   color: var(--comment, #6272a4);
 }
 
+/* --- Hobby sections: text on the left, square photo on the right --- */
+
+.about__hobby-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.about__hobby-text {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.media--square {
+  flex: 0 0 260px;
+  width: 260px;
+  max-width: none;
+  aspect-ratio: 1 / 1;
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .about__hobby-body {
+    flex-direction: column;
+  }
+
+  .media--square {
+    flex: none;
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
 /* ===== Footer ===== */
 
 .footer {
