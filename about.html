@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>João Santos — About</title>
+  <meta name="description" content="About João Santos: education, interests and hobbies.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/favicon-180.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/layout.css">
+</head>
+<body>
+
+  <div id="sidebar"></div>
+
+  <main class="page">
+
+    <section class="about">
+      <p class="cmd-prompt">$ cat about.md</p>
+      <h1 class="about__title">About me</h1>
+      <p class="about__text">
+        I'm a student of Informatics and Computing Engineering at FEUP,
+        University of Porto, based in Porto. I'm mostly interested in
+        systems, computer architecture and C++. I like to understand how
+        things work at a lower level instead of staying on the surface.
+      </p>
+      <p class="about__text">
+        I hold a Cambridge C1 English certificate, and I'd like to spend part
+        of my master's degree studying abroad.
+      </p>
+      <p class="about__text">
+        Outside of university, I split my time between training (cycling and
+        powerlifting), building and restoring bikes, and learning acoustic
+        guitar. I also keep a personal note-taking system in Obsidian,
+        inspired by Zettelkasten.
+      </p>
+    </section>
+
+    <section class="about__hobby">
+      <p class="cmd-prompt">$ cat hobbies/cycling.md</p>
+      <h2 class="about__subtitle">Cycling</h2>
+      <p class="about__text">
+        I train cycling with a focus on FTP and VO2max. I also enjoy building
+        and restoring bikes, and I'm currently putting one together from
+        scratch using second-hand parts.
+      </p>
+
+      <!--
+        NOTE: Strava's official embeddable widget (iframe) has been broken
+        since Jan 2026 and Strava hasn't fixed it, so this is a plain link
+        instead of embedded data.
+        For live data (e.g. monthly km, FTP chart), the proper way is the
+        Strava API with OAuth — something for another time.
+      -->
+      <a
+        href="https://www.strava.com/athletes/45406479"
+        target="_blank"
+        rel="noopener"
+        class="about__strava-link"
+      >
+        See my activity on Strava →
+      </a>
+    </section>
+
+    <section class="about__hobby">
+      <p class="cmd-prompt">$ cat hobbies/powerlifting.md</p>
+      <h2 class="about__subtitle">Powerlifting</h2>
+      <p class="about__text">
+        I train powerlifting alongside cycling, with a hybrid plan designed
+        so the two don't get in each other's way.
+      </p>
+    </section>
+
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="js/sidebar.js"></script>
+  <script src="js/footer.js"></script>
+</body>
+</html>

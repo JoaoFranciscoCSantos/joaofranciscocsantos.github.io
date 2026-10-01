@@ -1,0 +1,438 @@
+/* css/layout.css
+ *
+ * Sidebar layout + general page structure.
+ * COLOURS and FONTS (Dracula, JetBrains Mono) live in style.css —
+ * this file only handles structure and positioning.
+ */
+
+:root {
+  --sidebar-width: 240px;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* ===== Sidebar ===== */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: var(--sidebar-width);
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  background-color: var(--bg, #282a36);
+  border-right: 1px solid var(--border, #44475a);
+}
+
+.sidebar__name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--fg, #f8f8f2);
+}
+
+.sidebar__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sidebar__links a {
+  text-decoration: none;
+  color: var(--fg, #f8f8f2);
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.sidebar__links a:hover {
+  opacity: 1;
+}
+
+/* Class applied via JS to the current page's link */
+.sidebar__links--active {
+  opacity: 1 !important;
+  color: var(--purple, #bd93f9) !important;
+  font-weight: bold;
+}
+
+.sidebar__socials {
+  margin-top: auto; /* pushes it to the bottom of the sidebar */
+  display: flex;
+  gap: 1rem;
+}
+
+.sidebar__socials a {
+  color: var(--fg, #f8f8f2);
+  text-decoration: none;
+  opacity: 0.7;
+}
+
+.sidebar__socials a:hover {
+  opacity: 1;
+}
+
+/* ===== Main content ===== */
+
+.page {
+  margin-left: var(--sidebar-width);
+  padding: 3rem 4rem;
+  flex: 1;
+  max-width: 900px;
+}
+
+/* ===== Hero ===== */
+
+.hero {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* --- "Terminal" window with the photo --- */
+
+.hero__photo-window {
+  flex: 0 0 280px;
+  width: 280px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--bg-alt, #1e1f29);
+  border: 1px solid var(--border, #44475a);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.hero__window-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 0.8rem;
+  background-color: var(--bg-alt-2, #21222c);
+  border-bottom: 1px solid var(--border, #44475a);
+}
+
+.hero__dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.hero__dot--red {
+  background-color: var(--red, #ff5555);
+}
+
+.hero__dot--yellow {
+  background-color: var(--yellow, #f1fa8c);
+}
+
+.hero__dot--green {
+  background-color: var(--green, #50fa7b);
+}
+
+.hero__window-title {
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--comment, #6272a4);
+}
+
+.hero__photo-placeholder {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--bg-alt-2, #21222c) 0,
+    var(--bg-alt-2, #21222c) 1px,
+    transparent 1px,
+    transparent 12px
+  );
+}
+
+.hero__photo-placeholder p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--comment, #6272a4);
+  line-height: 1.5;
+}
+
+/* Makes the photo fill the window */
+.hero__photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.hero__window-footer {
+  padding: 0.5rem 0.8rem;
+  font-size: 0.75rem;
+  color: var(--green, #50fa7b);
+  border-top: 1px solid var(--border, #44475a);
+}
+
+/* --- Hero text --- */
+
+.hero__content {
+  flex: 1 1 400px;
+  min-width: 280px;
+}
+
+.hero__prompt,
+.cmd-prompt {
+  margin: 0 0 0.5rem;
+  color: var(--comment, #6272a4);
+  font-size: 0.95rem;
+}
+
+.cmd-prompt {
+  margin-top: 2.5rem;
+}
+
+.cmd-prompt:first-child {
+  margin-top: 0;
+}
+
+.hero__title {
+  margin: 0 0 1rem;
+  font-size: 2.75rem;
+  line-height: 1.1;
+}
+
+.hero__title-accent {
+  background: linear-gradient(90deg, var(--purple, #bd93f9), var(--pink, #ff79c6));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero__subtitle {
+  color: var(--fg, #f8f8f2);
+  opacity: 0.85;
+  margin: 0 0 1.5rem;
+}
+
+.hero__intro {
+  color: var(--fg, #f8f8f2);
+  opacity: 0.75;
+  line-height: 1.6;
+  max-width: 560px;
+  margin: 0 0 1.5rem;
+}
+
+.hero__tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+}
+
+.hero__tags li {
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--border, #44475a);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: var(--purple, #bd93f9);
+  background-color: var(--bg-alt, #1e1f29);
+}
+
+/* --- Responsive: stack on small screens --- */
+
+@media (max-width: 700px) {
+  .hero {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero__photo-window {
+    width: 100%;
+    flex: none;
+  }
+
+  .hero__title {
+    font-size: 2.1rem;
+  }
+}
+
+/* ===== Strava link (replaces the broken iframe) ===== */
+
+.about__strava-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--orange, #fc5200);
+  border-radius: 4px;
+  color: var(--orange, #fc5200);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.about__strava-link:hover {
+  background-color: var(--orange, #fc5200);
+  color: var(--bg, #282a36);
+}
+
+/* ===== About, Projects and Contact pages ===== */
+
+.about__title,
+.projects__title,
+.contact__title {
+  margin: 0 0 1rem;
+  font-size: 2rem;
+  line-height: 1.15;
+  color: var(--fg, #f8f8f2);
+}
+
+.about__subtitle {
+  margin: 0 0 0.75rem;
+  font-size: 1.35rem;
+  color: var(--purple, #bd93f9);
+}
+
+.about__text,
+.contact__text,
+.projects__card-desc {
+  max-width: 640px;
+  margin: 0 0 1rem;
+  line-height: 1.7;
+  opacity: 0.8;
+}
+
+/* --- Project cards --- */
+
+.projects__card {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background-color: var(--bg-card, #353746);
+  border: 1px solid var(--border, #44475a);
+  border-radius: 8px;
+}
+
+.projects__card-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.35rem;
+  color: var(--purple, #bd93f9);
+}
+
+.projects__card-status {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  padding: 0.1rem 0.6rem;
+  border: 1px solid var(--orange, #ffb86c);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  color: var(--orange, #ffb86c);
+}
+
+.projects__card-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.projects__card-stack li {
+  padding: 0.25rem 0.7rem;
+  border: 1px solid var(--border, #44475a);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: var(--cyan, #8be9fd);
+  background-color: var(--bg-alt, #1e1f29);
+}
+
+.projects__card-links a,
+.contact__links a {
+  color: var(--green, #50fa7b);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.projects__card-links a:hover,
+.projects__card-links a:focus-visible,
+.contact__links a:hover,
+.contact__links a:focus-visible {
+  border-bottom-color: var(--green, #50fa7b);
+}
+
+/* --- Contact --- */
+
+.contact__links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ===== Footer ===== */
+
+.footer {
+  margin-left: var(--sidebar-width);
+  padding: 1.5rem 4rem;
+  opacity: 0.6;
+  font-size: 0.85rem;
+}
+
+/* ===== Responsive: sidebar moves to the top on small screens ===== */
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .sidebar__links {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .sidebar__socials {
+    margin-top: 0;
+    margin-left: auto;
+  }
+
+  .page,
+  .footer {
+    margin-left: 0;
+  }
+}
+@media (max-width: 768px) {
+  .page {
+    padding: 2rem 1.5rem;
+  }
+
+  .footer {
+    padding: 1.5rem;
+  }
+}

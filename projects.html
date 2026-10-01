@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>João Santos — Projects</title>
+  <meta name="description" content="Projects by João Santos: a WiFi-controlled robot, a C++ SVG converter, a wishlist app, a price tracker and a scheduling app.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/favicon-180.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/layout.css">
+</head>
+<body>
+
+  <div id="sidebar"></div>
+
+  <main class="page">
+
+    <section class="projects">
+      <p class="cmd-prompt">$ ls projects/</p>
+      <h1 class="projects__title">Projects</h1>
+
+      <!-- Repeat this block for each project -->
+      <article class="projects__card">
+        <p class="cmd-prompt">$ cd orion-2wd/</p>
+        <h2 class="projects__card-title">Orion 2WD</h2>
+        <p class="projects__card-desc">
+          An experimental two-wheeled robot for learning robotics and embedded
+          systems. It runs on a NodeMCU ESP8266 with a TB6612 motor driver and
+          N20 motors, is controlled over WiFi through a web interface, and has
+          an SPI TFT display (ST7789) plus QTR-8RC sensor tests. Line
+          following, obstacle detection and computer vision are on the roadmap.
+        </p>
+        <ul class="projects__card-stack">
+          <li>ESP8266</li>
+          <li>Embedded</li>
+          <li>Robotics</li>
+        </ul>
+        <div class="projects__card-links">
+          <a href="https://github.com/JoaoFranciscoCSantos/Orion-2WD-Robot" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </article>
+
+      <article class="projects__card">
+        <p class="cmd-prompt">$ cd svg-to-png/</p>
+        <h2 class="projects__card-title">SVG to PNG Converter</h2>
+        <p class="projects__card-desc">
+          A group project: an SVG to PNG converter written in C++. It parses
+          the XML and applies transformations (translation, rotation, scale)
+          before exporting the result as PNG. I worked on the XML parsing.
+        </p>
+        <ul class="projects__card-stack">
+          <li>C++</li>
+          <li>TinyXML2</li>
+        </ul>
+        <div class="projects__card-links">
+          <a href="https://github.com/JoaoFranciscoCSantos/svg_to_png" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </article>
+
+      <article class="projects__card">
+        <p class="cmd-prompt">$ cd wishlist-app/</p>
+        <h2 class="projects__card-title">Wishlist App</h2>
+        <span class="projects__card-status">In progress</span>
+        <p class="projects__card-desc">
+          A web app to keep track of things I want to buy, with a savings
+          balance and a purchase suggestion based on priority and price.
+          Paste a product link and it pre-fills the name, price and image
+          for you to review before saving. Next step: packaging it for mobile.
+        </p>
+        <ul class="projects__card-stack">
+          <li>Python</li>
+          <li>Flask</li>
+          <li>SQLite</li>
+          <li>BeautifulSoup</li>
+        </ul>
+      </article>
+
+      <article class="projects__card">
+        <p class="cmd-prompt">$ cd price-scout/</p>
+        <h2 class="projects__card-title">Price Scout</h2>
+        <span class="projects__card-status">In progress</span>
+        <p class="projects__card-desc">
+          A tracker that follows the price of an item across several online
+          shops and stores the full price history, so I can see where it's
+          cheapest and how it changes over time. It combines web scraping with
+          official APIs (such as eBay's) and is covered by pytest tests.
+        </p>
+        <ul class="projects__card-stack">
+          <li>Python</li>
+          <li>SQLite</li>
+          <li>pytest</li>
+        </ul>
+      </article>
+
+      <article class="projects__card">
+        <p class="cmd-prompt">$ cd agenda-ai/</p>
+        <h2 class="projects__card-title">AI Agenda</h2>
+        <span class="projects__card-status">In progress</span>
+        <p class="projects__card-desc">
+          A personal scheduling app that detects conflicts between events and
+          finds free slots for tasks based on priority and estimated duration.
+          AI-powered scheduling suggestions are planned on top of it.
+        </p>
+        <ul class="projects__card-stack">
+          <li>Python</li>
+          <li>PostgreSQL</li>
+        </ul>
+      </article>
+
+    </section>
+
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="js/sidebar.js"></script>
+  <script src="js/footer.js"></script>
+</body>
+</html>

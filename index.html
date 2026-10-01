@@ -1,192 +1,76 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>João Santos | Portfólio</title>
+  <title>João Santos — Home</title>
+  <meta name="description" content="Portfolio of João Santos, Informatics and Computing Engineering student at FEUP (University of Porto), focused on C++, systems and embedded projects.">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
   <link rel="apple-touch-icon" href="assets/favicon-180.png">
-  <meta name="description" content="Portfólio de João Santos, estudante de Engenharia Informática e Computação na FEUP.">
-
-  <link rel="stylesheet" href="style.css">
-  <!-- Ícones (vamos usar emojis ou SVG simples por agora, sem dependências externas) -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/layout.css">
 </head>
 <body>
 
-  <!-- ============ NAVBAR ============ -->
-  <header class="navbar">
-    <div class="container navbar__inner">
-      <a href="#hero" class="navbar__logo">JS</a>
+  <!-- The sidebar is built by js/sidebar.js and injected here -->
+  <div id="sidebar"></div>
 
-      <nav class="navbar__nav">
-        <a href="#sobre">Sobre</a>
-        <a href="#skills">Skills</a>
-        <a href="#projetos">Projetos</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
-    </div>
-  </header>
+  <main class="page">
 
-  <!-- ============ HERO ============ -->
-  <section id="hero" class="hero">
-    <div class="container hero__inner">
-      <div class="hero__text">
-        <p class="hero__greeting">Olá, eu sou</p>
-        <h1 class="hero__name">João Santos</h1>
-        <h2 class="hero__title">Estudante de Engenharia Informática e Computação @ FEUP</h2>
-        <p class="hero__description">
-          Apaixonado por desenvolvimento de software, sistemas e tudo o que envolve
-          resolver problemas com código — de C++ a jogos em Godot.
+    <section class="hero">
+
+      <div class="hero__photo-window">
+        <div class="hero__window-bar">
+          <span class="hero__dot hero__dot--red"></span>
+          <span class="hero__dot hero__dot--yellow"></span>
+          <span class="hero__dot hero__dot--green"></span>
+          <span class="hero__window-title">~/joao.jpg</span>
+        </div>
+
+        <div class="hero__photo-placeholder">
+          <img src="assets/profile.jpeg" alt="Portrait of João Santos" class="hero__photo">
+        </div>
+
+        <div class="hero__window-footer">$ cat joao.jpg &rarr; ok</div>
+      </div>
+
+      <div class="hero__content">
+        <p class="hero__prompt">$ whoami</p>
+
+        <h1 class="hero__title">
+          João <span class="hero__title-accent">Santos</span>
+        </h1>
+
+        <p class="hero__subtitle">
+          &gt; Informatics and Computing Engineering student @ FEUP
         </p>
-        <div class="hero__actions">
-          <a href="#projetos" class="btn btn--primary">Ver Projetos</a>
-          <a href="#contacto" class="btn btn--secondary">Contactar</a>
-        </div>
-      </div>
 
-      <div class="hero__image">
-        <img src="assets/xhs 268495944.jpeg" alt="Foto de João Santos">
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ SOBRE ============ -->
-  <section id="sobre" class="sobre">
-    <div class="container">
-      <h2 class="section-title">Sobre mim</h2>
-
-      <div class="sobre__content">
-        <p>
-          Sou estudante de Engenharia Informática e Computação na FEUP, com particular
-          interesse em C++, sistemas e arquitetura de computadores. Gosto de entender
-          como as coisas funcionam por dentro — desde o código até ao hardware.
+        <p class="hero__intro">
+          I study Informatics and Computing Engineering at FEUP, University of
+          Porto, with a strong interest in C++, systems programming and
+          computer architecture. I build projects to learn by doing, from a
+          WiFi-controlled robot to a price-tracking tool, and outside of
+          university I train cycling and powerlifting.
         </p>
-        <p>
-          Fora da programação, treino ciclismo e powerlifting, estou a aprender guitarra
-          e a construir uma bicicleta a partir de peças soltas. Também escrevo notas e
-          organizo o que aprendo no Obsidian — gosto de transformar conhecimento disperso
-          em algo estruturado.
-        </p>
-        <p>
-          Atualmente exploro desenvolvimento de jogos com Godot e continuo a aprofundar
-          C++ através de projetos práticos e coursework universitário.
-        </p>
+
+        <ul class="hero__tags">
+          <li>C++</li>
+          <li>Python</li>
+          <li>Systems</li>
+          <li>Computer Architecture</li>
+          <li>Embedded</li>
+        </ul>
       </div>
-    </div>
-  </section>
 
-  <!-- ============ SKILLS ============ -->
-  <section id="skills" class="skills">
-    <div class="container">
-      <h2 class="section-title">Skills</h2>
+    </section>
 
-      <div class="skills__grid">
-        <div class="skill-card">
-          <span class="skill-card__icon">⚙️</span>
-          <h3>C++</h3>
-        </div>
-        <div class="skill-card">
-          <span class="skill-card__icon">🐍</span>
-          <h3>Python</h3>
-        </div>
-        <div class="skill-card">
-          <span class="skill-card__icon">🌿</span>
-          <h3>Git / GitHub</h3>
-        </div>
-        <div class="skill-card">
-          <span class="skill-card__icon">🎮</span>
-          <h3>Godot</h3>
-        </div>
-        <div class="skill-card">
-          <span class="skill-card__icon">🌐</span>
-          <h3>HTML / CSS</h3>
-        </div>
-        <div class="skill-card">
-          <span class="skill-card__icon">🖥️</span>
-          <h3>Linux (Ubuntu)</h3>
-        </div>
-      </div>
-    </div>
-  </section>
+  </main>
 
-  <!-- ============ PROJETOS ============ -->
-  <section id="projetos" class="projetos">
-    <div class="container">
-      <h2 class="section-title">Projetos</h2>
+  <!-- The footer is built by js/footer.js and injected here -->
+  <div id="footer"></div>
 
-      <div class="projetos__grid">
-
-        <article class="project-card">
-          <div class="project-card__content">
-            <h3>SVG to PNG Converter</h3>
-            <p>
-              Conversor de ficheiros SVG para PNG desenvolvido em C++, em grupo.
-              Responsável pela camada de parsing XML usando TinyXML2.
-            </p>
-            <div class="project-card__tags">
-              <span class="tag">C++</span>
-              <span class="tag">TinyXML2</span>
-              <span class="tag">Trabalho de Grupo</span>
-            </div>
-            <a href="https://github.com/JoaoFranciscoCSantos/svg_to_png" target="_blank" class="project-card__link">
-              Ver no GitHub →
-            </a>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-card__content">
-            <h3>Orion 2WD Robot</h3>
-            <p>
-              Projeto de robótica com um robô 2WD, explorando controlo e lógica de
-              movimento.
-            </p>
-            <div class="project-card__tags">
-              <span class="tag">Robótica</span>
-              <span class="tag">C++</span>
-            </div>
-            <a href="https://github.com/JoaoFranciscoCSantos" target="_blank" class="project-card__link">
-              Ver no GitHub →
-            </a>
-          </div>
-        </article>
-
-        <!-- Card extra vazio para quando tiveres mais projetos -->
-        <article class="project-card project-card--placeholder">
-          <div class="project-card__content">
-            <h3>Próximo projeto 🚧</h3>
-            <p>Em construção — fica atento!</p>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CONTACTO ============ -->
-  <section id="contacto" class="contacto">
-    <div class="container">
-      <h2 class="section-title">Contacto</h2>
-      <p class="contacto__text">
-        Estou disponível para oportunidades, colaborações ou só para falar sobre tecnologia.
-      </p>
-
-      <div class="contacto__links">
-        <a href="mailto:o-teu-email@exemplo.com" class="btn btn--primary">Email</a>
-        <a href="https://github.com/JoaoFranciscoCSantos" target="_blank" class="btn btn--secondary">GitHub</a>
-        <a href="#" target="_blank" class="btn btn--secondary">LinkedIn</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ FOOTER ============ -->
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; <span id="year"></span> João Santos. Feito com HTML, CSS e JS.</p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+  <script src="js/sidebar.js"></script>
+  <script src="js/footer.js"></script>
 </body>
 </html>
