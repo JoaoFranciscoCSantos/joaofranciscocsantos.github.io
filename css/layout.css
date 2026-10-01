@@ -387,6 +387,44 @@ body {
   list-style: none;
 }
 
+/* ===== Photo slots (projects and hobbies) =====
+ * Each <figure class="media"> shows its image. If the file doesn't exist yet,
+ * the "media--empty" class is added by the onerror handler and a dashed
+ * placeholder with the expected file path is shown instead.
+ */
+
+.media {
+  margin: 0 0 1rem;
+  max-width: 640px;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--border, #44475a);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--bg-alt, #1e1f29);
+}
+
+.media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.media--empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+  border-style: dashed;
+}
+
+.media--empty::after {
+  content: attr(data-path);
+  font-size: 0.8rem;
+  color: var(--comment, #6272a4);
+}
+
 /* ===== Footer ===== */
 
 .footer {
