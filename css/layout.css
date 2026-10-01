@@ -11,8 +11,15 @@
 
 body {
   display: flex;
+  flex-wrap: wrap; /* lets the footer sit on its own row below the page */
+  align-content: flex-start;
   min-height: 100vh;
   margin: 0;
+}
+
+/* The injected footer container takes the full width, below <main> */
+#footer {
+  flex: 0 0 100%;
 }
 
 /* ===== Sidebar ===== */
