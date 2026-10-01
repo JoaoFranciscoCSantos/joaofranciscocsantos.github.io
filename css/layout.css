@@ -90,7 +90,7 @@ body {
   margin-left: var(--sidebar-width);
   padding: 3rem 4rem;
   flex: 1;
-  max-width: 900px;
+  max-width: 1100px;
 }
 
 /* ===== Hero ===== */
@@ -427,6 +427,10 @@ body {
 
 /* --- Hobby sections: text on the left, square photo on the right --- */
 
+.about__hobby {
+  margin-top: 3rem;
+}
+
 .about__hobby-body {
   display: flex;
   align-items: flex-start;
@@ -439,8 +443,8 @@ body {
 }
 
 .media--square {
-  flex: 0 0 260px;
-  width: 260px;
+  flex: 0 0 340px;
+  width: 340px;
   max-width: none;
   aspect-ratio: 1 / 1;
   margin: 0;
@@ -454,7 +458,7 @@ body {
   .media--square {
     flex: none;
     width: 100%;
-    max-width: 320px;
+    max-width: 360px;
   }
 }
 
